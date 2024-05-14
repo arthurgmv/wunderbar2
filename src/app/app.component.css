@@ -1,0 +1,10 @@
+* {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+app-course-card {
+  align-items: center;
+  margin-top: 1rem;
+}

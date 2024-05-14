@@ -1,0 +1,13 @@
+* {
+  color: #5e08a6;
+}
+
+#course {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  margin-bottom: 1rem;
+  margin-top: 2rem;
+}
+

@@ -1,0 +1,45 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+#course {
+  display: flex;
+}
+
+.header__container{
+
+  color: whitesmoke;
+  text-align: center;
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  margin-right: 20px;
+
+}
+
+ul {
+  list-style: none;
+}
+
+.botoes {
+  border-radius: 50%;
+  color: whitesmoke;
+  font-weight: bold;
+  background-color: blueviolet;
+  border: none;
+  width: 1.5rem;
+  height: 1.5rem;
+  align-items: center;
+  margin-right: 2px;
+  padding-bottom: 2px;
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+.botoes:hover, .botoes:focus {
+  background-color: #5e08a6;
+}
+
+

@@ -1,0 +1,22 @@
+<!-- header.component.html -->
+<header class="header__container" style="margin-bottom: 2rem">
+  <nav class="navbar fixed-top" style="height:4rem; background-color: blueviolet; padding-left: 1rem; padding-right: 1rem">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#" style="color: whitesmoke">WUNDERBAR Courses</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+        <span class="fas fa-shopping-cart"></span>
+      </button>
+      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+        <div class="offcanvas-header" style="display: flex; flex-direction: column">
+          <h5 class="offcanvas-title" id="offcanvasNavbarLabel" style="margin-left: 5px">Shopping Cart</h5>
+          <ul>
+            <li *ngFor="let item of course">{{ item.course.name }} - Qty: {{ item.quantity }}
+              <button (click)="incrementQuantity(item.course.id)" class="botoes">+</button> <button (click)="removeItem(item.course.id)" class="botoes">-</button>
+            </li>
+          </ul>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close" style="margin-right: 1rem"></button>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>

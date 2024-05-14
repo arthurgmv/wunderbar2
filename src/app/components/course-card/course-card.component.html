@@ -1,0 +1,9 @@
+<!-- course-card.component.html -->
+<div class="card" style="width: 18rem;" id="course" *ngFor="let course of coursesList">
+  <img src="{{course.img}}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{ course.name }}</h5>
+    <p class="card-text">Level: {{course.level}} | Price: {{course.price}}</p>
+    <a href="#" class="btn btn-primary" style="color: whitesmoke; background-color: #5e08a6" (click)="addToCart(course)">Buy</a>
+  </div>
+</div>
