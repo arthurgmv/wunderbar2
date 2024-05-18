@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { BehaviorSubject } from 'rxjs';
-import { ICourse } from '../models/course';
 
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { ICourse } from '../models/course';
+import { BehaviorSubject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class ApiService {
+export class ApiCourseService {
   private coursersSubject = new BehaviorSubject<ICourse[]>([]);
   coursersList = this.coursersSubject.asObservable();
   API_Url = 'https://crudcrud.com/api/84ae9f371a424c0a903e0230f1548feb/courses';

@@ -2,7 +2,7 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {ICourse} from "../../models/course";
 import {NgForOf} from "@angular/common";
 import {HeaderService} from "../header/header.service";
-import { ApiService } from '../../api-service/api.service';
+import { ApiCourseService } from '../../api-service/api-course.service';
 import { pipe } from 'rxjs';
 
 @Component({
@@ -17,7 +17,7 @@ import { pipe } from 'rxjs';
 export class CourseCardComponent implements OnInit{
   coursesList:ICourse[] = []
 
-  constructor(private headerService: HeaderService, private apiService: ApiService) {}
+  constructor(private headerService: HeaderService, private apiCourseService: ApiCourseService) {}
   addToCart(course:ICourse) {
     this.headerService.addCourse(course);
   }
@@ -32,9 +32,9 @@ export class CourseCardComponent implements OnInit{
   } */
 
   ngOnInit() {
-    const $booksList = this.apiService.coursersList;
-    $booksList.subscribe((booksList) => {
-      this.coursesList = booksList;
+    const $coursersList = this.apiCourseService.coursersList;
+    $coursersList.subscribe((coursersList) => {
+      this.coursesList = coursersList;
       console.log(this.coursesList)
     })
   }

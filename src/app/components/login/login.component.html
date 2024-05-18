@@ -1,0 +1,11 @@
+<form [formGroup]="userForm">
+    <div >
+        <label for="exampleInputPassword1">Email address</label>
+        <input type="text" formControlName="email">
+      </div>
+      <div >
+        <label for="exampleInputPassword1" >Password</label>
+        <input type="password"  formControlName="password">
+      </div>
+      <button type="submit" (click)="submitForm()">Submit</button>
+</form>
