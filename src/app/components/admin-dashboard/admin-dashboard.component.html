@@ -1,0 +1,32 @@
+<h1>Cursos</h1>
+<a href="manage"><button>Inserir novo Curso</button></a>
+
+@if(coursesList.length > 1){
+<table class="table">
+    <thead>
+          <tr>
+            <th scope="col">&nbsp;</th>
+            <th scope="col">img</th>
+            <th scope="col">Name</th>
+            <th scope="col">Level</th>
+            <th scope="col">Price</th>
+        </tr>
+        </thead>
+    @for(course of coursesList; track course.id){
+        <tbody>
+          <tr>
+            <th scope="row"></th>
+            <td><img src="{{ course.img }}" alt="{{ course.name }}" width="25"></td>
+            <td>{{ course.name }}</td>
+            <td>{{ course.level }}</td>
+            <td>{{ course.price }}</td>
+            <th><button (click)="EditCourse(course)">Editar</button></th>
+            <th><button (click)="DeleteCourse(course)">Excluir</button></th>
+            </tr>
+        </tbody>
+    }
+      </table>
+
+}@else {
+    <p>Não forem encontados cursos</p>
+}

@@ -29,7 +29,7 @@ export class LoginComponent {
       alert('User not found');
       return;
     }
-    alert('Welcome ' + userLoged.name);
+    window.location.href = '/dashboard';
   }
   
 }

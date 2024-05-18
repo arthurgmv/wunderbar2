@@ -1,0 +1,19 @@
+<form [formGroup]="courseForm">
+    <div >
+        <label for="exampleInputPassword1">Nome</label>
+        <input type="text" formControlName="name">
+      </div>
+      <div >
+        <label for="exampleInputPassword1" >Nivel</label>
+        <input type="text"  formControlName="level">
+      </div>
+      <div >
+        <label for="exampleInputPassword1" >Link Imagem</label>
+        <input type="text"  formControlName="img">
+      </div>
+      <div >
+        <label for="exampleInputPassword1" >Preço</label>
+        <input type="text"  formControlName="price">
+      </div>
+      <button type="submit" (click)="submitForm()">Submit</button>
+</form>

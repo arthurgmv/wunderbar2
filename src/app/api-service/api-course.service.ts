@@ -9,7 +9,7 @@ import { BehaviorSubject } from 'rxjs';
 export class ApiCourseService {
   private coursersSubject = new BehaviorSubject<ICourse[]>([]);
   coursersList = this.coursersSubject.asObservable();
-  API_Url = 'https://crudcrud.com/api/84ae9f371a424c0a903e0230f1548feb/courses';
+  API_Url = 'https://crudcrud.com/api/302690b3cde7431387aa90697acf18b1/courses';
   
   constructor(private http: HttpClient) {
     this.getAllCourses();
@@ -36,8 +36,9 @@ export class ApiCourseService {
     return this.http.put(`${this.API_Url}/${course.id}`, course);
   }
 
-  deleteCourse(id: number) {
-    return this.http.delete(`${this.API_Url}/${id}`);
+  deleteCourse(course: any) {
+    console
+    return this.http.delete(`${this.API_Url}/${course._id}`);
   }
 
   AddCoursesInitial() {
