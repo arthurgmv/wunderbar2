@@ -1,5 +1,6 @@
 <!-- course-card.component.html -->
-<div class="d-flex flex-wrap gap-5 justify-content-around m-3">
+@if(coursesList.length > 1){
+  <div class="d-flex flex-wrap gap-5 justify-content-around m-3">
     <div class="card course-card " style="width: 18rem;" id="course" *ngFor="let course of coursesList">
       <img src="{{course.img}}" class="card-img-top w-75" alt="...">
       <div class="card-body">
@@ -8,4 +9,10 @@
         <a href="#" class="btn btn-primary buy-button" (click)="addToCart(course)">Buy</a>
       </div>
     </div>
-</div>
+  </div>
+}
+@else {
+  <div class="spinner-border text-dark" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+}

@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { ICourse } from '../../models/course';
 import { ApiCourseService } from '../../api-service/api-course.service';
+import { RouterModule } from '@angular/router';
 
 
 @Component({
   selector: 'app-admin-dashboard',
   standalone: true,
-  imports: [],
+  imports: [RouterModule],
   templateUrl: './admin-dashboard.component.html',
   styleUrl: './admin-dashboard.component.css'
 })
@@ -25,8 +26,9 @@ export class AdminDashboardComponent implements OnInit{
 
   DeleteCourse(course: ICourse) {
       console.log(course);
-      this.ApiCourseService.deleteCourse(course).subscribe();
-
+      const confirm = window.confirm('Confirma a exclusão do curso?');
+      if(confirm)
+        this.ApiCourseService.deleteCourse(course).subscribe();
     }
     EditCourse(course: ICourse) {
       console.log(course);

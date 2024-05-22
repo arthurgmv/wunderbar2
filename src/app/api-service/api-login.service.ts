@@ -8,7 +8,9 @@ import { IUser } from '../models/user';
 })
 export class ApiLoginService {
 
-  API_Url = 'https://crudcrud.com/api/02ccc65edb634ec294cf6ae902f60814/users';
+
+  API_Url = 'https://crudcrud.com/api/15617e08690b474ca473c37f30351ddc/users';
+
   userList: IUser[] = [];
   constructor(private http: HttpClient) {
     this.getAllUsers();
@@ -16,6 +18,7 @@ export class ApiLoginService {
 
   getUserByEmail(email: string) {
     const user = this.userList.find(user => user.email === email);
+    console.log(user);
     return user;  
   }
 

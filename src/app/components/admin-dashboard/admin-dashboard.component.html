@@ -1,5 +1,5 @@
 <h1 class="title">Cursos</h1>
-<a href="manage" class="new-course-btn"><button>Inserir novo Curso</button></a>
+<a routerLink="/manage" class="new-course-btn"><button>Inserir novo Curso</button></a>
 
 @if(coursesList.length > 1){
 <table class="table">
@@ -22,7 +22,7 @@
             <td>{{ course.level }}</td>
             <td>{{ course.price }}</td>
             <td>
-                <button class="edit-btn" (click)="EditCourse(course)">Editar</button>
+                <a routerLink="/manage/{{course._id}}"><button class="edit-btn">Editar</button></a>
                 <button class="delete-btn" (click)="DeleteCourse(course)">Excluir</button>
             </td>
           </tr>
