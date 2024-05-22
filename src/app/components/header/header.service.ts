@@ -2,17 +2,21 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { ICourse } from '../../models/course';
+import { AuthService } from '../../guards/auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HeaderService {
   private courses = new BehaviorSubject<{ course: ICourse, quantity: number }[]>([]);
-
+  
   currentCourses = this.courses.asObservable();
-
-  constructor() {
+  allCart: any;
+  course: any;
+  search: boolean = false;
+  constructor(private auth: AuthService) {
   }
+
 
   addCourse(newCourse: ICourse) {
     const currentCourses = this.courses.value;
@@ -25,14 +29,19 @@ export class HeaderService {
       }
       return item;
     });
-
     if (!found) {
+      
+      const { _id: couseId, ...courseNoId } = newCourse;
+      courseNoId.quantityInCart = 1;
       updatedCourses.push({course: newCourse, quantity: 1});
-    }
+      console.log(updatedCourses)
 
+
+    }      
+    
     this.courses.next(updatedCourses);
   }
-
+  
   removeCourse(courseId: number): void {
     const currentCourses = this.courses.value;
     // Defina explicitamente o tipo do acumulador como o mesmo tipo do BehaviorSubject
@@ -60,5 +69,9 @@ export class HeaderService {
 
     this.courses.next(updatedCourses);
   }
-
+  
+  logOut() {
+    return this.auth.logoutUser();
+    
+  }
 }

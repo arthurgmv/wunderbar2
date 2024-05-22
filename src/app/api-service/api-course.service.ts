@@ -2,14 +2,15 @@ import { Injectable } from '@angular/core';
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ICourse } from '../models/course';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, tap } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
 export class ApiCourseService {
   private coursersSubject = new BehaviorSubject<ICourse[]>([]);
   coursersList = this.coursersSubject.asObservable();
-  API_Url = 'https://crudcrud.com/api/726f74e87d2b45fcb701aee0285e4c39/courses';
+  courseLength: number = 0;
+  API_Url = 'https://crudcrud.com/api/101fdba304264a4ca7648ddbec2eeef3/courses';
   
   constructor(private http: HttpClient) {
     this.getAllCourses();
@@ -21,24 +22,35 @@ export class ApiCourseService {
       if(course.length < 1){
         this.AddCoursesInitial();
       }
-    });
+      this.courseLength = course.length;
+    })
   }
 
-  getCourseById(id: number) {
+  getCourseById(id: string) {
     return this.http.get<ICourse>(`${this.API_Url}/${id}`);
   }
 
   addCourse(course: ICourse) {
-    return this.http.post(this.API_Url, course);  
+    if (!course.id)
+      course.id = this.courseLength + 1;
+    console.log(course);
+    return this.http.post(this.API_Url, course).pipe(
+      tap(() => this.getAllCourses())
+    );
   }
 
   updateCourse(course: ICourse) {
-    return this.http.put(`${this.API_Url}/${course.id}`, course);
+    console.log(course);
+    const { _id: courseId, ...courseNoId } = course;
+    return this.http.put(`${this.API_Url}/${course._id}`, courseNoId).pipe(
+      tap(() => this.getAllCourses())
+    );
   }
 
   deleteCourse(course: any) {
-    console
-    return this.http.delete(`${this.API_Url}/${course._id}`);
+    return this.http.delete(`${this.API_Url}/${course._id}`).pipe(
+      tap(() => this.getAllCourses())
+    );
   }
 
   AddCoursesInitial() {
