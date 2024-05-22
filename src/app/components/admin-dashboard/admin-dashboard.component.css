@@ -1,0 +1,45 @@
+
+.title {
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 30px;
+}
+
+.new-course-btn {
+    display: block;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.table th,
+.table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.table th {
+    background-color: #f2f2f2;
+}
+
+.edit-btn,
+.delete-btn {
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+.edit-btn:hover,
+.delete-btn:hover {
+    background-color: #0056b3;
+}

@@ -1,0 +1,47 @@
+/* course-card.component.css */
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap; /* Permite que os cards quebrem para a próxima linha quando não houver espaço suficiente */
+    justify-content: space-between; /* Distribui os cards uniformemente na linha */
+}
+
+.course-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center; /* Centralizar o texto */
+  margin-bottom: 20px; /* Espaçamento entre os cards */
+  border: 1px solid #2b16042c;
+  border-radius: 4px;
+}
+
+.card-img-top {
+  height: 200px; /* Altura da imagem */
+  object-fit: cover; /* Manter proporção da imagem */
+}
+
+.card-title {
+  font-size: 1.25rem; /* Tamanho do título */
+  margin-bottom: 0.5rem; /* Espaçamento abaixo do título */
+}
+
+.card-text {
+  font-size: 0.875rem; /* Tamanho do texto */
+  color: #6c757d; /* Cor do texto */
+}
+
+.buy-button {
+  color: whitesmoke; /* Cor do texto do botão */
+  background-color: #ff8400cd;
+  border-color: #ff7b002c;
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  transition: background-color 0.3s ease; /* Transição suave da cor de fundo */
+}
+
+.buy-button:hover {
+  background-color: #5e08a6;; /* Cor de fundo do botão ao passar o mouse */
+}

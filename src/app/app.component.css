@@ -1,0 +1,25 @@
+* {
+  margin: 20px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+app-course-card {
+  align-items: center;
+  margin-top: 1rem;
+  display: flex;
+  background-color: blue;
+}
+app-footer{
+  margin: 0;
+}
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* Define a altura total da página */
+}
+
+
+router-outlet {
+  flex-grow: 1; /* Ocupa todo o espaço restante */
+}
